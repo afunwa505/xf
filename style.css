@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+body{
+    width: 100%;
+    color: #fefefe;
+    background-color: #282c34;
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    color: #fefefe;
+    text-decoration: none;
+}
+a:hover{
+    color: #fd961a;
+}
+header{
+    width: 100%;
+    height: 120px;
+    color: #fefefe;
+    background-color: #282c34;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0 0 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+nav{
+    width: 40%;
+}
+nav ul{
+    display: flex;
+    justify-content: space-around;
+}
+nav ul li{
+    list-style: none;
+}
+.nav2{
+    width: 30%;
+    display: flex;
+}
+.link1{
+    width: 30%;
+    height: 40px;
+    color: #fd961a;
+    margin: 0 50px 0 0;
+    text-align: center;
+    padding: 7px 0 0 0;
+    border-radius: 7px;
+    border: 1px solid #fd961a;
+}
+.link1:hover{
+    color: #fefefe;
+}
+.link2{
+    width: 30%;
+    height: 40px;
+    color: #000;
+    background: #fd961a;
+    text-align: center;
+    padding: 7px 0 0 0;
+    border-radius: 7px;
+}
+.link2:hover{
+    color: #fd961a;
+    background: #282c34;
+    border: 1px solid #fd961a;
+}
+.container1{
+    width: 100%;
+    height: 460px;
+    background: url('../image/jumpers.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 6% 0 0 0;
+}
+.footer{
+    width: 100%;
+    height: 100px;
+    background: #282c34;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 20px 0 20px;
+}
+.span{
+    width: 10%;
+    height: 30px;
+}
+.login-form,.register-form{
+    width: 100%;
+    color: #fefefe;
+    margin: 10% 0 0 0;
+}
+.userName,.password,.name{
+    width: 70%;
+    height: 60px;
+    color: #fefefe;
+    margin: 50px 0 20px 15%;
+    text-align: center;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid #fefefe;
+    outline: none;
+    font-size: large;
+}
+.btn{
+    width: 20%;
+    height: 60px;
+    margin: 50px 0 50px 42%;
+    font-size: large;
+    border-radius: 7px;
+}
+.btn:hover{
+    color: #fefefe;
+    background: #fd961a;
+}
+.login-form p{
+    margin: 0 0 0 43%;
+}
+.file, label{
+    margin: 0 0 0 44%;
+}
+.termsCondition,.about{
+    padding: 10% 20px 0 20px;
+}
+#fa-eye{
+    position: absolute;
+    top: 52%;
+    left: 80%;
+    font-size: x-large;
+    cursor: pointer;
+}
+#fa-eye2{
+    position: absolute;
+    top: 102%;
+    left: 80%;
+    font-size: x-large;
+    cursor: pointer;
+}
+#fa-eye3{
+    position: absolute;
+    top: 128%;
+    left: 80%;
+    font-size: x-large;
+    cursor: pointer;
+}
+#fa-eye4{
+    position: absolute;
+    top: 82%;
+    left: 80%;
+    font-size: x-large;
+    cursor: pointer;
+}
+.error{
+    width: 100%;
+    color: red;
+    text-align: center;
+}
+.container2{
+    width: 100%;
+    height: 300px;
+    color:#fefefe;
+    margin: 40px 0 0 0;
+}
+.container2 ul{
+    display: flex;
+    justify-content: space-around;
+    padding: 10% 0 0 0;
+}
+.container2 ul li{
+    list-style: none;
+    color:#fefefe;
+    
+}
+.container2 a{
+    color:#fefefe;
+}
+.container2 a:hover{
+    color: #fd961a;
+}
