@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 session_start()
 
@@ -11,6 +11,9 @@ session_start()
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms and Conditions</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://use.fontawesome.com/1dfdf7e8fe.js">
+
+    </script>
 </head>
 <body>
 <header>
@@ -27,6 +30,13 @@ session_start()
             <a href="register.php" class="link2"><div class="register">SIGN UP</div></a>
         </div>
     </header>
+    <div class="mobile-nav">
+   <a href="login.php" class="mobile-login"><div >LOG IN</div></a>
+            <a href="register.php" class="mobile-register"><div >SIGN UP</div></a>
+   </div>
+   <i class="fa fa-bars" aria-hidden="true" id="hamburger" onclick="display()"></i>
+   <i class="fa fa-times" aria-hidden="true" id="close" onclick="hide()"></i>
+   
 <div class='termsCondition'>
         <br />
         <h1>Terms and Conditions</h1>
@@ -87,6 +97,14 @@ session_start()
             Last updated: <span id="span"></span></p>
             <br />
         </div>
-
-        <script src="./js/intro.js"></script>
+        <div class="mobile-nav2">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="settings.php">Settings</a></li>
+        </ul>
+    </div>
+    <script src="./js/intro.js"></script>
 </body>
+</html>

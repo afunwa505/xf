@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php 
 session_start();
     include "connect.php";
@@ -54,6 +54,25 @@ session_start();
             <a href="register.php" class="link2"><div class="register">SIGN UP</div></a>
         </div>
     </header>
+    <!--Navigation for mobile-->
+   <div class="mobile-nav">
+   <a href="login.php" class="mobile-login"><div >LOG IN</div></a>
+            <a href="register.php" class="mobile-register"><div >SIGN UP</div></a>
+   </div>
+   <i class="fa fa-bars" aria-hidden="true" id="hamburger" onclick="display()"></i>
+   <i class="fa fa-times" aria-hidden="true" id="close" onclick="hide()"></i>
+
+   <div class="mobile-nav2">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="settings.php">Settings</a></li>
+        </ul>
+    </div>
+
+        <i class="fa fa-eye" aria-hidden="true" id="fa-eye" onclick="show()"></i>
+        
 <div class='login-form'>
             <form action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>' method='post'>
                 <input type='text' name='userName' placeholder='Enter your User Name' class='userName' >
@@ -65,12 +84,11 @@ session_start();
                 <br />
                
                 <input type='submit' name='submit' value='Log In' class='btn'></input>
-                <br />
+               
                 <p><a href="forgottenPassword.php">Forgotten Password?</a></p>
             </form>
         </div>
-        <i class="fa fa-eye" aria-hidden="true" id="fa-eye" onclick="show()"></i>
         
         <script src="./js/intro.js"></script>
 </body>
-
+</html>

@@ -1,4 +1,9 @@
-<<<<<<< HEAD
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    header("location:login.php");
+}
+?>
 
 
 <!DOCTYPE html>
@@ -8,6 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://use.fontawesome.com/1dfdf7e8fe.js">
+
+    </script>
 </head>
 <body>
     <header>

@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://use.fontawesome.com/1dfdf7e8fe.js">
+
+    </script>
 </head>
 <body>
     <header>
@@ -24,6 +27,14 @@
             <a href="register.php" class="link2"><div class="register">SIGN UP</div></a>
         </div>
     </header>
+    
+    <!--Navigation for mobile-->
+   <div class="mobile-nav">
+   <a href="login.php" class="mobile-login"><div >LOG IN</div></a>
+            <a href="register.php" class="mobile-register"><div >SIGN UP</div></a>
+   </div>
+   <i class="fa fa-bars" aria-hidden="true" id="hamburger" onclick="display()"></i>
+   <i class="fa fa-times" aria-hidden="true" id="close" onclick="hide()"></i>
     <div class='about'>
        <br />
        <p>At X-File, we understand the importance of seamlessly uploading and saving files from one location to another. Whether you're a student, professional, or simply someone who needs a reliable file-uploading platform, we've got you covered. Our mission is to provide a user-friendly, secure, and efficient file uploading service that simplifies your digital life.</p>
@@ -44,5 +55,15 @@
         <br />
         
        </div>
+       
+       <div class="mobile-nav2">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="settings.php">Settings</a></li>
+        </ul>
+    </div>
+       <script src="./js/intro.js"></script>
 </body>
 </html>

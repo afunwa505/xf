@@ -29,6 +29,23 @@ header{
     top: 0;
     left: 0;
 }
+/*mobile navigation */
+.mobile-nav{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    margin: 10% 0 0 0;
+    color: #fefefe;
+    display: none;
+}
+/*hamburger menu and close button for mobile view*/
+#hamburger, #close{
+    display: none;
+    color: #fefefe;
+}
+.mobile-nav2{
+    display: none;
+}
 nav{
     width: 40%;
 }
@@ -43,6 +60,7 @@ nav ul li{
     width: 30%;
     display: flex;
 }
+
 .link1{
     width: 30%;
     height: 40px;
@@ -78,14 +96,6 @@ nav ul li{
     background-size: 100% 100%;
     margin: 6% 0 0 0;
 }
-.footer{
-    width: 100%;
-    height: 100px;
-    background: #282c34;
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 20px 0 20px;
-}
 .span{
     width: 10%;
     height: 30px;
@@ -110,7 +120,7 @@ nav ul li{
 .btn{
     width: 20%;
     height: 60px;
-    margin: 50px 0 50px 42%;
+    margin: 50px 0 20px 42%;
     font-size: large;
     border-radius: 7px;
 }
@@ -126,6 +136,43 @@ nav ul li{
 }
 .termsCondition,.about{
     padding: 10% 20px 0 20px;
+}
+.image-paragraph{
+    margin: 10% 0 0 20px;
+}
+.upload-input{
+    margin: 20px 0 0 20px;
+}
+.upload-btn{
+    width: 10%;
+    height: 40px;
+    margin: 20px 0 0 20px; 
+    background-color: #fd961a;
+    color: #000;
+    border: 1px solid #fd961a;
+    border-radius: 7px;
+}
+.upload-btn:hover{
+    background-color: #fefefe;
+    color: #000;
+}
+.uploaded-img{
+    width: 15%;
+    margin: 30px 0 10px 40px;   
+    border-radius: 7px; 
+}
+.uploaded-img:hover{
+    animation-name: afunwa;
+    animation-timing-function: ease-in-out;  
+    animation-duration: 4s;
+}
+@keyframes afunwa{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.7);
+    }
 }
 #fa-eye{
     position: absolute;
@@ -181,4 +228,133 @@ nav ul li{
 }
 .container2 a:hover{
     color: #fd961a;
+}
+.footer{
+    width: 100%;
+    height: 100px;
+    background: #282c34;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 20px 0 20px;
+}
+
+@media  screen and (max-width:575px){
+    body{
+        width: 100%;
+    }
+    header{
+        display: none;
+    }
+    #fa-eye{
+        position: absolute;
+        top: 33%;
+        left: 75%;
+    }
+    #fa-eye2{
+        position: absolute;
+        top: 58%;
+        left: 75%;
+    }
+    #fa-eye3{
+        position: absolute;
+        top: 73%;
+        left: 75%;
+    }
+    #fa-eye4{
+        position: absolute;
+        top: 52.3%;
+        left: 75%;
+    }
+    .mobile-nav{
+        display: block;
+        width: 100%;
+        height: 100px;
+        margin: 0 0 0 0;
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #000;
+    }
+    .mobile-login{
+        width: 20%;
+        height: 45px;
+        border: 1px solid #fd961a;
+        border-radius: 7px;
+        margin: 20px 15px 0 10px;
+        text-align: center;
+        padding: 7px 0 0 0;
+    }
+    .mobile-register{
+        width: 20%;
+        height: 45px;
+        color: #000;
+        background-color: #fd961a;
+        border-radius: 7px;
+        text-align: center;
+        padding: 7px 0 0 0;
+        margin: 20px 0 0 0;
+    }
+    .mobile-register:hover{
+        color: #fefefe;
+    }
+    #hamburger{
+        display: block;
+        position: absolute;
+        top: 3%;
+        left: 90%;
+        font-size: 40px;
+        position: fixed;
+        color: #fefefe;
+    }
+    #close{
+        position: absolute;
+        top: 3%;
+        left: 90%;
+        font-size: 40px;
+        position: fixed;
+        color: #fefefe;
+    }   
+    .container1{
+        width: 100%;
+        height: 300px;
+        margin: 17.9% 0 0 0;
+    }
+    .mobile-nav2{
+        width: 30%;
+        height: 220px;
+        background-color: #000;
+        border-radius: 7px;
+        position: absolute;
+        top: 11%;
+    }
+    .mobile-nav2 ul li{
+        list-style: none;
+        padding: 25px 0 0 35%;
+    }
+    .login-form{
+        width: 100%;
+        margin: 20% 0 0 0;
+    }
+    .termsCondition,.about{
+    padding: 30% 20px 0 20px;
+    }
+    .image-paragraph{
+        margin: 23% 0 0 20px;
+    }
+    .upload-btn{
+        width: 15%;
+    }
+    .uploaded-img{
+        width: 25%;
+    }
+    .btn{
+        margin: 50px 0 10px 42%;
+    }
+    .footer{
+        width: 100%;
+        height: 70px;
+        padding: 20px 10px 0 10px;
+    }
+
 }

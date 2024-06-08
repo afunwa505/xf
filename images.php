@@ -1,8 +1,11 @@
-<<<<<<< HEAD
+
 <?php 
 // Include the database configuration file 
 include 'connect.php'; 
  session_start();
+if(!isset($_SESSION['username'])){
+    header("location:login.php");
+}
 $statusMsg = ''; 
  
 // File upload directory 
@@ -51,70 +54,57 @@ echo $statusMsg;
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            width: 100%;
-        }
-        a{
-            text-decoration: none;
-            color: red;
-            margin: 5px 0 0 10px;
-        }
-        a:hover{
-            background-color: red;
-            color: white;
-        }
-        p{
-            margin: 30px 0 0 10px;
-        }
-        input{
-            margin: 10px 0 0 10px;
-        }
-        img{
-            width: 15%;
-            margin: 30px 0 0 40px;   
-            border-radius: 7px;    
-        }
-        img:hover{          
-            animation-name: afunwa;
-            animation-timing-function: ease-in-out;  
-            animation-duration: 4s;
-        }
-        @keyframes afunwa{
-            from{
-                transform: scale(1);
-            }
-            to{
-                transform: scale(1.7);
-            }
-        }
-        
-    </style>
+    <title>Images</title>
+    <link rel="stylesheet" href="./css/style.css">
+     <script src="https://use.fontawesome.com/1dfdf7e8fe.js">
+
+</script>
 </head>
 <body>
+<header>
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="profile.php">Profile</a></li>
+                <li><a href="settings.php">Settings</a></li>
+            </ul>
+        </nav>
+        <div class="nav2">
+            <a href="login.php" class="link1"><div class="login">LOG IN</div></a>
+            <a href="register.php" class="link2"><div class="register">SIGN UP</div></a>
+        </div>
+    </header>
+
+<div class="mobile-nav">
+   <a href="login.php" class="mobile-login"><div >LOG IN</div></a>
+            <a href="register.php" class="mobile-register"><div >SIGN UP</div></a>
+   </div>
+   <i class="fa fa-bars" aria-hidden="true" id="hamburger" onclick="display()"></i>
+   <i class="fa fa-times" aria-hidden="true" id="close" onclick="hide()"></i>
 
 <form action="" method="post" enctype="multipart/form-data">
-    <p>Select Image File to Upload:</p>
-    <input type="file" name="file"> <br>
-    <input type="submit" name="submit" value="Upload">
+    <p class="image-paragraph">Select Image File to Upload:</p>
+    <input type="file" name="file" class="upload-input"> <br>
+    <input type="submit" name="submit" value="Upload" class="upload-btn">
 </form>
+
 
 <?php
 
 // Include the database configuration file
 include 'connect.php';
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $delete = mysqli_query($conn,"DELETE FROM 'image' WHERE 'id'='$id'");
+    header("location:images.php");
+    die();
+}
 // Get images from the database
     if(isset($_SESSION['id'])){
         $sql = "SELECT * FROM register WHERE id='".$_SESSION['id']."'";
@@ -127,17 +117,34 @@ include 'connect.php';
 $count = mysqli_num_rows($query);
 $i = 1;
 while($row = mysqli_fetch_object($query)){
+
   
    // $img = htmlspecialchars($row->image);
    $imageURL = htmlspecialchars($row->image);
    
     if($imageURL){
-        $imageURL = 'db-img/' .$row->image;
+        $imageURL = 'db-img/'.$row->image;
     
-        echo "<img src='".$imageURL."'>";
+        echo "<img class='uploaded-img' src='".$imageURL."'>";
+       // echo "<a href='download.php?file=$imageURL'>download</a>"; 
+        
+        //echo "<a href='images.php?id=.$imageURL '>DELETE</a>"; 
     }
     $i++;
 }
     }
  ?>
+
+<div class="mobile-nav2">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="settings.php">Settings</a></li>
+        </ul>
+    </div>
+
+<script src="./js/intro.js"></script>
+
 </body>
+</html>

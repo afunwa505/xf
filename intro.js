@@ -30,3 +30,23 @@ function show3(){
         pass.type = "password"
     }
 }
+
+function display(){
+    let mobile_nav2 = document.querySelector('.mobile-nav2');
+let hamburger = document.querySelector('#hamburger');
+let close_btn = document.querySelector('#close');
+
+    mobile_nav2.style.display='block';
+    close_btn.style.display='block';
+    hamburger.style.display='none';
+}
+
+function hide(){
+    let mobile_nav2 = document.querySelector('.mobile-nav2');
+let hamburger = document.querySelector('#hamburger');
+let close_btn = document.querySelector('#close');
+
+    mobile_nav2.style.display='none';
+    close_btn.style.display='none';
+    hamburger.style.display='block';
+}

@@ -1,8 +1,8 @@
-<?php
+<?php 
 include "connect.php";
 if(!empty($_GET['file'])){
     $filename =  basename($_GET['file']);
-    $filePath = "db-img/".$filename;
+    $filePath = 'db-img/'.$filename;
     if(!empty($filename)&& file_exists($filePath));
     header("Cache-Control: public");
     header("Content-Description: File Transfer");

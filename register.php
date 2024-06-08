@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 include "connect.php";
 
@@ -70,10 +70,16 @@ mysqli_close($conn);
             <a href="register.php" class="link2"><div class="register">SIGN UP</div></a>
         </div>
     </header>
+    <div class="mobile-nav">
+   <a href="login.php" class="mobile-login"><div >LOG IN</div></a>
+            <a href="register.php" class="mobile-register"><div >SIGN UP</div></a>
+   </div>
+   <i class="fa fa-bars" aria-hidden="true" id="hamburger" onclick="display()"></i>
+   <i class="fa fa-times" aria-hidden="true" id="close" onclick="hide()"></i>
+
 <div class='register-form'>
             <form action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>' method='post'>
-            <input type='text' name='firstName' placeholder='Enter your First Name' class='name'>
-                </input>
+            <input type='text' name='firstName' placeholder='Enter your First Name' class='name'>             
                 <div class="error"><?php echo $firstnameError ?></div>
                 <br />
                 <input type='text' name='lastName' placeholder='Enter your Last Name' class='name'>
@@ -98,5 +104,15 @@ mysqli_close($conn);
         </div>
         <i class="fa fa-eye" aria-hidden="true" id="fa-eye2" onclick="show()"></i>
         <i class="fa fa-eye" aria-hidden="true" id="fa-eye3" onclick="show2()"></i>
+        
+        <div class="mobile-nav2">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="settings.php">Settings</a></li>
+        </ul>
+    </div>
         <script src="./js/intro.js"></script>
 </body>
+</html>
