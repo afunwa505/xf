@@ -156,9 +156,20 @@ nav ul li{
     background-color: #fefefe;
     color: #000;
 }
-.uploaded-img{
+.uploaded-audio{
+    margin: 20px 10px 10px 30px;
+}
+.uploaded-video{
     width: 15%;
-    margin: 30px 0 10px 40px;   
+    height: 200px;
+    margin: 10px 0 10px 10px;   
+    border-radius: 10px; 
+    
+}
+.uploaded-img{
+    width: 10%;
+    height: 100px;
+    margin: 30px 0 10px 10px;   
     border-radius: 7px; 
 }
 .uploaded-img:hover{

@@ -91,6 +91,7 @@ echo $statusMsg;
 <form action="" method="post" enctype="multipart/form-data">
     <p class="image-paragraph">Select Image File to Upload:</p>
     <input type="file" name="file" class="upload-input"> <br>
+    <div style="color: red; margin:0 0 0 10px"><?php echo $statusMsg ?></div>
     <input type="submit" name="submit" value="Upload" class="upload-btn">
 </form>
 

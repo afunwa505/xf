@@ -44,7 +44,7 @@ if(!isset($_SESSION['username'])){
    <i class="fa fa-times" aria-hidden="true" id="close" onclick="hide()"></i>
     
     <?php  if (isset($_SESSION['username'])) : ?>
-           <p style="color: white; margin:30% 0 0 50px"><?php echo $_SESSION['username']; ?> </p>
+           <p style="color: white; margin:20% 0 0 50px"><?php echo $_SESSION['username']; ?> </p>
             <?php endif ?>
       
     <section class="container2">

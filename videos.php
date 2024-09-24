@@ -1,8 +1,55 @@
-<?php
-session_start();
+
+<?php 
+// Include the database configuration file 
+include 'connect.php'; 
+ session_start();
 if(!isset($_SESSION['username'])){
     header("location:login.php");
 }
+$statusMsg = ''; 
+ 
+// File upload directory 
+$targetDir = "db-videos/"; 
+ 
+if(isset($_POST["submit"])){
+    $id = "";
+    $user_id = "";
+   
+    if(!empty($_FILES["file"]["name"])){ 
+        if (isset($_SESSION['id'])){
+            $user_id = $_SESSION['id'];
+        $fileName = basename($_FILES["file"]["name"]); 
+        $targetFilePath = $targetDir . $fileName; 
+        $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION); 
+     
+        // Allow certain file formats 
+        $allowTypes = array('mp4'); 
+        if(in_array($fileType, $allowTypes)){ 
+            // Upload file to server 
+            if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
+                // Insert image file name into database 
+                $insert = "INSERT INTO video VALUES ('".$id."','".$fileName."','".$user_id."')";
+               
+                mysqli_query($conn,$insert);
+                if($insert){ 
+                    header("Refresh:0");
+                }else{ 
+                    $statusMsg = "File upload failed, please try again."; 
+                }  
+            }else{ 
+                $statusMsg = "Sorry, there was an error uploading your file."; 
+            } 
+        }else{ 
+            $statusMsg = 'Sorry, only mp4 files are allowed to upload.'; 
+        } 
+    }else{ 
+        $statusMsg = 'Please select a file to upload.'; 
+    } 
+} 
+}
+
+// Display status message 
+echo $statusMsg; 
 ?>
 
 
@@ -11,14 +58,14 @@ if(!isset($_SESSION['username'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Video</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://use.fontawesome.com/1dfdf7e8fe.js">
+     <script src="https://use.fontawesome.com/1dfdf7e8fe.js">
 
-    </script>
+</script>
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
@@ -32,6 +79,75 @@ if(!isset($_SESSION['username'])){
             <a href="register.php" class="link2"><div class="register">SIGN UP</div></a>
         </div>
     </header>
+
+<div class="mobile-nav">
+   <a href="login.php" class="mobile-login"><div >LOG IN</div></a>
+            <a href="register.php" class="mobile-register"><div >SIGN UP</div></a>
+   </div>
+   <i class="fa fa-bars" aria-hidden="true" id="hamburger" onclick="display()"></i>
+   <i class="fa fa-times" aria-hidden="true" id="close" onclick="hide()"></i>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <p class="image-paragraph">Select video File to Upload:</p>
+    <input type="file" name="file" class="upload-input"> <br>
+    <div style="color: red; margin:0 0 0 10px"><?php echo $statusMsg ?></div>
+    <input type="submit" name="submit" value="Upload" class="upload-btn">
+</form>
+
+
+<?php
+
+// Include the database configuration file
+include 'connect.php';
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $delete = mysqli_query($conn,"DELETE FROM 'video' WHERE 'id'='$id'");
+    header("location:images.php");
+    die();
+}
+// Get images from the database
+    if(isset($_SESSION['id'])){
+        $sql = "SELECT * FROM register WHERE id='".$_SESSION['id']."'";
+  $query = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_object($query);
+
+        $dbid = htmlspecialchars($row->id);
+        $sql = "SELECT video FROM video WHERE user_id=$dbid";
+        $query = mysqli_query($conn,$sql);
+$count = mysqli_num_rows($query);
+$i = 1;
+while($row = mysqli_fetch_object($query)){
+
+  
+   // $video = htmlspecialchars($row->video);
+   $videoURL = htmlspecialchars($row->video);
    
-    <script src="./js/intro.js"></script>
+    if($videoURL){
+        $videoURL = 'db-videos/'.$row->video;
+    
+        echo "<video controls class='uploaded-video' >
+                <source src='".$videoURL."' type='video/mp4'>
+                </video>
+        ";
+       // echo "<a href='download.php?file=$videoURL'>download</a>"; 
+        
+        //echo "<a href='images.php?id=.$videoURL '>DELETE</a>"; 
+    }
+    $i++;
+}
+    }
+ ?>
+
+<div class="mobile-nav2">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="settings.php">Settings</a></li>
+        </ul>
+    </div>
+
+<script src="./js/intro.js"></script>
+
 </body>
+</html>
